@@ -12,9 +12,9 @@ const BlogPage = ({ blogs }) => {
   const blogsDispatch = useBlogsDispatch()
   const notification = useNotificationDispatch()
   const queryClient = useQueryClient()
-  const user = useUserValue()
+  const user = useUserValue() || '' 
   const [comments, setComments] = useState([])
-  const match = useMatch('/blogs/:id')
+  const match = useMatch('/api/blogs/:id')
   const blog = match
     ? blogs.find((blog) => blog.id === match.params.id.toString())
     : null
@@ -99,7 +99,7 @@ const BlogPage = ({ blogs }) => {
             added by {blog.name}
           </p>
         </div>
-        {(blog.user.id === user.id || blog.user === user.id) && (
+        {blog.user && (blog.user.id === user.id || blog.user === user.id) && (
           <button type="button" className='removeButton' onClick={handleRemove}>
             remove
           </button>

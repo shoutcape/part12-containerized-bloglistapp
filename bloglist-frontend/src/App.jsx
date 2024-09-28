@@ -37,14 +37,14 @@ const App = () => {
   return (
     <div >
       {!userValue && (
-        <div className='container'>
-          <h1>login to application</h1>
-          <Notification />
-          <LoginForm />
-        </div>
-      )}
+        //  <div className='container'>
+        //    <h1>login to application</h1>
+        //    <Notification />
+        //    <LoginForm />
+        //  </div>
+        //)}
 
-      {userValue && (
+        //{userValue && (
         <div>
           <Menu />
           {blogs && (
@@ -60,8 +60,8 @@ const App = () => {
                 }
               />
               <Route path='/users' element={<Users />} />
-              <Route path='/users/:id' element={<User />} />
-              <Route path='/blogs/:id' element={<div>
+              <Route path='/api/users/:id' element={<User />} />
+              <Route path='/api/blogs/:id' element={<div>
                 <BlogPage blogs={blogs} /></div>
               } />
             </Routes>
